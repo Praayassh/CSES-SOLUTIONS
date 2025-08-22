@@ -40,7 +40,6 @@
 # debug information files
 *.dwo
 
-# New, scalable rules for executables without extensions
 # This ignores files in any subdirectory that don't have a file extension
 */[!.]*
 
