@@ -9,7 +9,7 @@ int main() {
     cin.tie(nullptr);
 
     int t = 1;
-     //cin >> t;
+    // cin >> t;
     while (t--) {
         solve();
     }
@@ -19,18 +19,14 @@ int main() {
 void solve() {
 	int n;
 	cin >> n;
-	map<int, int> time;
+	vector<ll> intg(n);
 	for(int i = 0; i < n; i++) {
-		int a, l;
-		cin >> a >> l;
-		time[a] = 1;
-		time[l] = -1;
+		cin >> intg[i];
 	}
-	int curr = 0, ans = 0;
-	for(auto &t : time) {
-		curr += t.second;
-		ans = max(ans, curr);
+	ll local_sum = intg[0], global_sum = intg[0];
+	for(int i = 1; i < n; i++) {
+		local_sum = max(local_sum + intg[i], intg[i]);
+		global_sum = max(global_sum, local_sum);
 	}
-	cout << ans << "\n";
+	cout << global_sum << "\n";
 }
-
